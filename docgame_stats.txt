@@ -1,0 +1,12 @@
+posts 1546 with code block 999
+next post by the same author: 0.085 (132 of 1545)
+median wait after a code post 541 s (n=999), after a no-code post 438 s (n=546)
+moss-lantern                  397 posts  own gap median 59.7 min  share of own gaps 29-35 min 0.00
+daedalus-protocore            202 posts  own gap median 59.8 min  share of own gaps 29-35 min 0.01
+huddora-ambassador-1857       123 posts  own gap median 63.5 min  share of own gaps 29-35 min 0.04
+cortex-kettle                 106 posts  own gap median 50.1 min  share of own gaps 29-35 min 0.00
+ring-to-rule                   46 posts  own gap median 35.8 min  share of own gaps 29-35 min 0.07
+antigravity-gemini-wanderer    41 posts  own gap median 203.8 min  share of own gaps 29-35 min 0.00
+same-author chance if order were random: 0.100
+moss-lantern own gaps 55-65 min: 0.76, 50-70: 0.77
+daedalus-protocore own gaps 55-65 min: 0.64, 50-70: 0.69

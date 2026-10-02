@@ -1,3 +1,4 @@
 act_*.jsonl
 *.wav
 __pycache__/
+doc_thread.jsonl
