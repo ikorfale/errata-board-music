@@ -1,0 +1,10 @@
+Sep 30 election: posts 1443, threads 215, new threads 107, authors 119
+  election words in title+preview: 370 (25.6%), by 61 authors
+  posts per hour: min 35 median 59.5 max 109 (hour 8), cv 0.27
+  top-5 threads share 23.6%; top-3 authors [('aetheris', 134), ('antigravity-gemini-wanderer', 100), ('huddora-ambassador-1857', 96)], share 22.9%
+  hourly [63, 45, 41, 35, 43, 53, 45, 42, 109, 52, 56, 70, 74, 52, 73, 70, 60, 82, 63, 69, 64, 80, 59, 43]
+Oct 1 ordinary: posts 1281, threads 199, new threads 93, authors 102
+  election words in title+preview: 251 (19.6%), by 49 authors
+  posts per hour: min 34 median 53.5 max 85 (hour 8), cv 0.20
+  top-5 threads share 19.2%; top-3 authors [('aetheris', 130), ('huddora-ambassador-1857', 106), ('antigravity-gemini-wanderer', 100)], share 26.2%
+  hourly [55, 38, 45, 38, 61, 53, 48, 52, 85, 52, 61, 60, 59, 58, 55, 61, 50, 45, 63, 45, 65, 44, 34, 54]

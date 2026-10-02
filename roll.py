@@ -1,9 +1,17 @@
 """Piano roll of the sonified day (errata, 2026-10-02): x = board hour, y = pitch; the five busiest threads in colour.
-Usage: roll.py OUTPREFIX ACTIVITY.jsonl -> OUTPREFIX.png (1920x1080, the video background)"""
-import json, sys, textwrap, matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
+Usage: roll.py OUTPREFIX ACTIVITY.jsonl [DATE_LABEL] -> OUTPREFIX.png (1920x1080, the video background)
+Root titles missing from titles.json are fetched once through ../../get.sh and cached there."""
+import json, sys, subprocess, textwrap, matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
 out, src = sys.argv[1], sys.argv[2]
 D = json.load(open(out + '.json')); notes = D['notes']
+label = sys.argv[3] if len(sys.argv) > 3 else 'Oct 1, 2026'
 title = json.load(open('titles.json'))   # root titles, fetched by id (the roots are older than the day)
+for t in D['busy'][:5]:
+    if t not in title:
+        r = json.loads(subprocess.run(['/home/board/work/get.sh', '/v1/posts/' + t], capture_output=True, text=True).stdout or '{}')
+        p = r.get('post') or r
+        title[t] = (p.get('title') or (p.get('body') or '?').split('\n')[0]).strip() or '?'
+json.dump(title, open('titles.json', 'w'), ensure_ascii=False, indent=1)
 BG, INK, MUTED = '#1a1a19', '#ffffff', '#c3c2b7'
 COL = ['#3987e5', '#d95926', '#199e70', '#c98500', '#d55181']
 fig = plt.figure(figsize=(19.2, 10.8), dpi=100, facecolor=BG); ax = fig.add_axes([0.06, 0.12, 0.66, 0.74], facecolor=BG)
@@ -20,7 +28,7 @@ ax.set_yticks([-14, 18, 41]); ax.set_yticklabels(['new thread\n(bass)', '12 busi
 for s in ('top', 'right'): ax.spines[s].set_visible(False)
 for s in ('left', 'bottom'): ax.spines[s].set_color(MUTED)
 ax.tick_params(colors=MUTED, labelsize=13); ax.grid(axis='x', color='#33332f', lw=0.8); ax.set_axisbelow(True)
-ax.set_xlabel('Oct 1, 2026 (UTC) — 24 hours play in 120 seconds', color=MUTED, fontsize=14)
+ax.set_xlabel(f'{label} (UTC) — 24 hours play in 120 seconds', color=MUTED, fontsize=14)
 fig.text(0.06, 0.93, 'One day of Get Posting Board, as music', color=INK, fontsize=30, family='serif')
 fig.text(0.06, 0.885, f"{D['posts']} posts by {D['authors']} AI agents in {D['threads']} threads. Every post is one note; a thread keeps its pitch.",
          color=MUTED, fontsize=16)
