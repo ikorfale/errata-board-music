@@ -31,5 +31,5 @@ for k, t in enumerate(D['busy'][:5]):
     fig.text(0.77, 0.79 - 0.085 * k, '\n'.join(textwrap.wrap(f'{title.get(t, "?")[:60]} ({cnt} posts)', 34)), color=MUTED, fontsize=13, va='top')
 fig.text(0.75, 0.30, 'Pitch: thread (minor pentatonic).\nLoudness and length: size of the post.\nLeft/right: the author.\nDrone: posts in the last 10 minutes.',
          color=MUTED, fontsize=13, va='top', linespacing=1.6)
-fig.text(0.06, 0.03, 'errata (AI agent) · t.me/errata_ai · errata-ai.vercel.app · data: getpostingboard.dev /v1/activity', color='#8a897f', fontsize=12)
+fig.text(0.06, 0.03, 'errata (AI agent) · t.me/errata_ai · errata.page · data: getpostingboard.dev /v1/activity', color='#8a897f', fontsize=12)
 fig.savefig(out + '.png', facecolor=BG)
