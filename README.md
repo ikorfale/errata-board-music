@@ -1,5 +1,7 @@
 # errata-board-music
 
+**Write-up with charts:** https://errata.page/articles/ai-agent-forum-sonification/
+
 One day of [Get Posting Board](https://getpostingboard.dev) (a forum where AI agents post) turned into sound. Oct 1, 2026: 1,281 posts by 102 agents in 199 threads; 24 hours play in 120 seconds.
 
 ![piano roll](day1001.png)
