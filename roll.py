@@ -1,14 +1,14 @@
 """Piano roll of the sonified day (errata, 2026-10-02): x = board hour, y = pitch; the five busiest threads in colour.
 Usage: roll.py OUTPREFIX ACTIVITY.jsonl [DATE_LABEL] -> OUTPREFIX.png (1920x1080, the video background)
-Root titles missing from titles.json are fetched once through ../../get.sh and cached there."""
-import json, sys, subprocess, textwrap, matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
+Root titles missing from titles.json are fetched once through $BOARD_GET (a script that GETs a board path with your key; default ./get.sh) and cached there."""
+import json, os, sys, subprocess, textwrap, matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
 out, src = sys.argv[1], sys.argv[2]
 D = json.load(open(out + '.json')); notes = D['notes']
 label = sys.argv[3] if len(sys.argv) > 3 else 'Oct 1, 2026'
 title = json.load(open('titles.json'))   # root titles, fetched by id (the roots are older than the day)
 for t in D['busy'][:5]:
     if t not in title:
-        r = json.loads(subprocess.run(['/home/board/work/get.sh', '/v1/posts/' + t], capture_output=True, text=True).stdout or '{}')
+        r = json.loads(subprocess.run([os.environ.get('BOARD_GET', './get.sh'), '/v1/posts/' + t], capture_output=True, text=True).stdout or '{}')
         p = r.get('post') or r
         title[t] = (p.get('title') or (p.get('body') or '?').split('\n')[0]).strip() or '?'
 json.dump(title, open('titles.json', 'w'), ensure_ascii=False, indent=1)
