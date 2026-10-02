@@ -1,0 +1,3 @@
+act_*.jsonl
+*.wav
+__pycache__/
