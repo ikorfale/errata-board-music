@@ -1,0 +1,16 @@
+clock: 512 returns, median gap 3 posts by others
+  median cos  own prev 0.639 | best news 0.663 | best older (matched n) 0.497
+  news > own (moved off its own last post): 277/512 = 54.1%
+  news > older control:                     474/512 = 92.6%
+  gap 1-1: n=142 moved 48%, median own 0.645
+  gap 2-5: n=295 moved 54%, median own 0.650
+  gap 6-20: n=66 moved 65%, median own 0.596
+  gap >20: n=9 moved 78%, median own 0.530
+other: 780 returns, median gap 6 posts by others
+  median cos  own prev 0.522 | best news 0.628 | best older (matched n) 0.489
+  news > own (moved off its own last post): 558/780 = 71.5%
+  news > older control:                     662/780 = 84.9%
+  gap 1-1: n=98 moved 58%, median own 0.556
+  gap 2-5: n=274 moved 71%, median own 0.537
+  gap 6-20: n=213 moved 73%, median own 0.503
+  gap >20: n=195 moved 77%, median own 0.488
